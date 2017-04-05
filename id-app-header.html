@@ -1,0 +1,130 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="id-app-layout-styles.html">
+
+<!--
+`id-app-header` Application header
+
+@demo demo/index.html
+-->
+
+<dom-module id="id-app-header">
+  <template>
+    <style include="id-app-layout-styles">
+      :host {
+        display: block;
+        height: 93px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .flex {
+        border-bottom: 3px solid #ddd;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--id-header-background-color, #fff);
+        background-repeat: no-repeat;
+        background-position: right top;
+      }
+
+      .brand, header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90px;
+        padding-left: 15px;
+      }
+
+      .brand {
+        display: none;
+      }
+
+      span {
+        margin: 0;
+        color: #000;
+        font-weight: 500;
+        font-size: 14px;
+        font-family: Merriweather,Georgia,Times,serif;
+        font-variant-ligatures: none;
+        font-style: italic;
+        display: block;
+      }
+
+      h2 {
+        margin: 0;
+        line-height: 1.5rem;
+        font-family: Lato,sans-serif;
+        font-weight: 700;
+      }
+
+      #seal {
+        position: absolute;
+        top: -30px;
+        right: 15px;
+        opacity: .6;
+      }
+
+      @media (min-width: 768px) {
+        :host {
+          height: 133px
+        }
+
+        .brand, header {
+          display: flex;
+          height: 130px;
+        }
+
+      }
+    </style>
+    <div class="flex" style$="background-image: url([[backgroundImage]])">
+      <div class="brand">
+        <img src$="[[brandImage]]">
+      </div>
+      <header>
+        <div>
+          <span>[[description]]</span>
+          <h2>[[name]]</h2>
+        </div>
+      </header>
+    </div>
+  </template>
+
+  <script>
+    class IdAppHeader extends Polymer.Element {
+      static get is() { return 'id-app-header'; }
+      static get properties() {
+        return {
+          /**
+           * Secondary line of text.
+           */
+          description: {
+            type: String,
+            value: 'The Official Application of the'
+          },
+          /**
+           * Background image.
+           */
+          backgroundImage: {
+            type: String,
+            value: '/images/idaho-seal.png'
+          },
+          /**
+           * Primary line of text.
+           */
+          name: {
+            type: String,
+            value: 'State of Idaho'
+          },
+          /**
+           * Brand image.
+           */
+          brandImage: {
+            type: String,
+            value: '/images/logo.svg'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(IdAppHeader.is, IdAppHeader);
+  </script>
+</dom-module>

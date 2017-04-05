@@ -1,0 +1,203 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="id-app-layout-styles.html">
+
+<!--
+`id-app-footer` Application footer
+
+@demo demo/index.html
+-->
+
+<dom-module id="id-app-footer">
+  <template>
+    <style include="id-app-layout-styles">
+      :host {
+        display: block;
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+
+      .pre-footer {
+        background: var(--id-pre-footer-background, #0c1e38);
+        color: #efefef;
+        padding: .5rem 15px .5rem 35px;
+        border-top: 3px solid #555;
+        position: relative;
+        font-size: .9rem;
+      }
+
+      .pre-footer:before, .address:before, .phone:before, .email:before {
+        display: block;
+        font: normal normal normal 14px/1 FontAwesome;
+        -webkit-font-smoothing: antialiased;
+        opacity: 0.7;
+        font-size: 16px;
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        margin-top: -8px;
+      }
+
+      .pre-footer:before {
+        content: "\f023";
+        left: 15px;
+      }
+
+      footer {
+        background: var(--id-footer-background, #0e2340);
+        padding: 30px 15px 30px;
+      }
+
+      footer .flex > div {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+        max-width: 100%;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-bottom: 30px;
+      }
+
+      footer .flex .map {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 16.666667%;
+            -ms-flex: 0 0 16.666667%;
+                flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+        display: none;
+      }
+
+      @media (min-width: 768px) {
+        footer .flex .map {
+          display: block;
+        }
+
+        footer .flex > div {
+          -webkit-flex: 0 0 41.666667%;
+              -ms-flex: 0 0 41.666667%;
+                  flex: 0 0 41.666667%;
+          max-width: 41.666667%;
+        }
+      }
+
+      footer .map img {
+        width: 100%;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: .9rem;
+        position: relative;
+        margin-bottom: .5rem;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .address, .phone, .email {
+        padding-left: 25px;
+      }
+
+      .address:before {
+        content: "\f041";
+        left: 3px;
+      }
+
+      .phone:before {
+        content: "\f095";
+        left: 1px;
+      }
+
+      .email:before {
+        content: "\f0e0";
+        left: 0;
+      }
+
+      footer h4 {
+        margin: 0 0 1rem;
+        border-bottom: 2px solid var(--id-primary-color, #2968c0);
+        padding-bottom: .25rem;
+        font-family: Lato,sans-serif;
+        font-weight: 700;
+      }
+
+      footer h4 a {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+      }
+    </style>
+    <div class="pre-footer">A secure service from Idaho.gov</div>
+    <footer>
+      <div class="flex">
+        <div class="map"><img src="/images/map.svg" alt="USA Map"></div>
+        <div>
+          <h4><a href$="[[url]]">[[name]]</a></h4>
+          <a href$="http://maps.google.com/?q=[[address]]" class="address">[[address]]</a>
+          <a href$="tel:[[phone]]" class="phone">[[phone]]</a>
+          <a href$="mailto:[[email]]" class="email">[[email]]</a>
+        </div>
+        <div>
+          <h4><a href="https://idaho.gov">Idaho.gov</a></h4>
+          <a href="https://www.idaho.gov/services/">Online Services</a>
+          <a href="https://www.idaho.gov/about-us/security-policy/">Security</a>
+          <a href="https://www.idaho.gov/about-us/privacy-policy/">Privacy</a>
+          <a href="https://www.idaho.gov/about-us/access-idaho/">About Us</a>
+        </div>
+      </div>
+    </footer>
+  </template>
+
+  <script>
+    class IdAppFooter extends Polymer.Element {
+      static get is() { return 'id-app-footer'; }
+      static get properties() {
+        return {
+          /**
+           * Name of agency
+           */
+          name: {
+            type: String,
+            value: 'State of Idaho'
+          },
+          /**
+           * URL of agency
+           */
+          url: {
+            type: String,
+            value: 'https://idaho.gov'
+          },
+          /**
+           * Phone of agency
+           */
+          phone: {
+            type: String,
+            value: '(208) 332-0102'
+          },
+          /**
+           * Email of agency
+           */
+          email: {
+            type: String,
+            value: 'info@accessidaho.org'
+          },
+          /**
+           * Address of agency
+           */
+          address: {
+            type: String,
+            value: '999 W Main St #910, Boise, ID 83702'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(IdAppFooter.is, IdAppFooter);
+  </script>
+</dom-module>
