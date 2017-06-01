@@ -16,6 +16,12 @@
         margin-right: -1rem;
       }
 
+      @media print {
+        :host {
+          display: none;
+        }
+      }
+
       .pre-footer {
         background: var(--id-pre-footer-background, #0c1e38);
         color: #efefef;
