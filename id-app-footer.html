@@ -17,7 +17,15 @@
       }
 
       @media print {
-        :host {
+        .pre-footer {
+          display: none;
+        }
+
+        .map {
+          display: none;
+        }
+
+        .footer-links {
           display: none;
         }
       }
@@ -149,7 +157,7 @@
           <a href$="tel:[[phone]]" class="phone">[[phone]]</a>
           <a href$="mailto:[[email]]" class="email">[[email]]</a>
         </div>
-        <div>
+        <div class="footer-links">
           <h4><a href="https://idaho.gov">Idaho.gov</a></h4>
           <a href="https://www.idaho.gov/services/">Online Services</a>
           <a href="https://www.idaho.gov/about-us/security-policy/">Security</a>
