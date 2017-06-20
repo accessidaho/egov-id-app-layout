@@ -1,12 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="id-app-layout-styles.html">
 
-<!--
-`id-app-header` Application header
-
-@demo demo/index.html
--->
-
 <dom-module id="id-app-header">
   <template>
     <style include="id-app-layout-styles">
@@ -82,6 +76,14 @@
   </template>
 
   <script>
+    /**
+     * `id-app-header`
+     * Idaho appliation header.
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
     class IdAppHeader extends Polymer.Element {
       static get is() { return 'id-app-header'; }
       static get properties() {

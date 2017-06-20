@@ -6,21 +6,44 @@
 
     <title>id-app-layout demo</title>
 
+    <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i|Lato:400,700,400italic" rel="stylesheet" type="text/css">
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../id-app-layout.html">
 
-    <style is="custom-style" include="demo-pages-shared-styles">
-    </style>
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        @-ms-viewport {
+          width: device-width;
+        }
+
+        html {
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+          -ms-overflow-style: scrollbar;
+        }
+
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          font-size: 0.9rem;
+          font-weight: normal;
+          line-height: 1.5;
+          color: #292b2c;
+          margin: 0;
+        }
+      </style>
+    </custom-style>
   </head>
   <body>
     <div class="vertical-section-container centered">
       <h3>Basic id-app-layout demo</h3>
       <demo-snippet>
         <template>
-          <id-app-layout></id-app-layout>
+          <id-app-header name="Payment Notification" background-image="./images/idaho-seal.png" description=""></id-app-header>
+          <id-app-footer name="Access Idaho" url="https://accessidaho.org" phone="(208) 332-0102" email="info@accessidaho.org" address="999 W Main St #910, Boise, ID 83702"></id-app-footer>
         </template>
       </demo-snippet>
     </div>
